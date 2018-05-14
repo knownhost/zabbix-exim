@@ -33,7 +33,7 @@ zsend exbytesreceived `grep -m 1 "Received" $TMP2|awk '{print $2}'`
 zsend exbytesdelivered `grep -m 1 "Delivered" $TMP2|awk '{print $2}'`
 zsend exoutbound `sed -e '/Deliveries by transport/,/Messages received per hour/!d' $TMP2 |grep remote_smtp |awk '{sum += $3} END {if (!NR) print 0; else print sum}'`
 zsend exinbound `sed -e '/Deliveries by transport/,/Messages received per hour/!d' $TMP2 |grep -E "(dovecot|cagefs_virtual_address_pipe)" |awk '{sum += $3} END {if (!NR) print 0; else print sum}'`
-zsend exmailqueue `exim -bpc`
+zsend exmailqueue `/usr/sbin/exim -bpc`
 
 rm $TMP1
 rm $TMP2

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set Variables
-EXIMLOG=/var/log/exim/mainlog
+EXIMLOG=/var/log/exim_mainlog
 MYLOG=/tmp/exim_status.log
 OFFSETFILE=/tmp/eximstatusoffset.dat
 EXIMSTATS=/usr/sbin/eximstats

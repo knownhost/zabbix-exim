@@ -11,6 +11,11 @@ ZABBIX_CONF=/etc/zabbix/zabbix_agentd.conf
 TMP1=$(mktemp)
 TMP2=$(mktemp)
 
+if [[ $1 ]]
+then
+  EXIMLOG=$1
+fi
+
 function zsend {
   echo "$1 $2"
   $ZABBIX_SENDER -c $ZABBIX_CONF -k $1 -o $2
